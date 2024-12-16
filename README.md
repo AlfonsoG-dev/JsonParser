@@ -23,6 +23,11 @@ pwsh java-exe.ps1
 ```shell
 java -jar JsonParser.jar
 ```
+3. You can provide a *.json* file.
+>- If you don't a default will be use.
+```shell
+java -jar JsonParser.jar -f ./filePath.json
+```
 
 # Disclaimer
 - This project is for educational purposes.
