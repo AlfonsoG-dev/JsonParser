@@ -66,4 +66,16 @@ public class FileOperations {
         }
         return types;
     }
+    public List<String> getJsonValues() {
+        List<String> values = new ArrayList<>();
+        for(int i=0; i<fileLines.size(); ++i) {
+            String[] json_lines = fileLines.get(i).trim().split(":");
+            if(json_lines.length == 2) {
+                values.add(json_lines[1].replace("\"", "").trim());
+            } else {
+                // TODO: implement object and list of values
+            }
+        }
+        return values;
+    }
 }

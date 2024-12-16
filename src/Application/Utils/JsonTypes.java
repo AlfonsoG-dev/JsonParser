@@ -5,5 +5,6 @@ public enum JsonTypes {
     LIST,
     OBJECT,
     BOOLEAN,
-    NUMBER
+    NUMBER,
+    LIST_OF
 }
