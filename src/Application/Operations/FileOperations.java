@@ -9,11 +9,8 @@ import Application.Utils.JsonTypes;
 
 /*
  * TODO: get the json values when split by *:*.
- * - get the string values first.
- *   - second the integer.
- *   - third the boolean values.
- *   - fourth the list values.
  *   - and get recursively the values that starts with *{* open bracees.
+ *   - the values that start with an open tag must show that and the close one to
  */
 public class FileOperations {
 
@@ -70,8 +67,9 @@ public class FileOperations {
         List<String> values = new ArrayList<>();
         for(int i=0; i<fileLines.size(); ++i) {
             String[] json_lines = fileLines.get(i).trim().split(":");
+            // TODO: get the multiline value
             if(json_lines.length == 2) {
-                values.add(json_lines[1].replace("\"", "").trim());
+                values.add(json_lines[1].trim());
             } else {
                 // TODO: implement object and list of values
             }
