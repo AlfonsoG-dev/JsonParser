@@ -5,6 +5,7 @@ import java.util.List;
 
 import Application.Utils.FileUtils;
 import Application.Utils.JsonUtils;
+import Application.Utils.JsonTypes;
 
 /*
  * TODO: get the json values when split by *:*.
@@ -55,12 +56,12 @@ public class FileOperations {
         }
         return keys;
     }
-    public List<String> getJsonTypes() {
-        List<String> types = new ArrayList<>();
+    public List<JsonTypes> getJsonTypes() {
+        List<JsonTypes> types = new ArrayList<>();
         for(int i=0; i<fileLines.size(); ++i) {
             String[] json_lines = fileLines.get(i).trim().split(":");
             if(json_lines.length == 2) {
-                System.out.println(jsonUtils.getJsonType(json_lines[1].trim()));
+                types.add(jsonUtils.getJsonType(json_lines[1].trim()));
             }
         }
         return types;
