@@ -1,13 +1,16 @@
 
 import java.io.File;
 
-import Utils.FileUtils;
+import Application.Operations.FileOperations;
 
 class JsonParser {
     public static void main(String[] args) {
         String fileName = "./docs/json_sample.json";
-        FileUtils fu = new FileUtils("." + File.separator);
-        fu.getFileLines(fileName)
+        FileOperations p = new FileOperations("." + File.separator);
+
+        p.setReadingPath(fileName);
+
+        p.getJsonKeys()
             .forEach(System.out::println);
     }
 }
