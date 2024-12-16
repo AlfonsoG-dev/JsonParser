@@ -10,7 +10,7 @@ class JsonParser {
 
         p.setReadingPath(fileName);
 
-        p.getJsonKeys()
+        p.getJsonTypes()
             .forEach(System.out::println);
     }
 }

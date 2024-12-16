@@ -43,7 +43,6 @@ public class FileOperations {
 
     public List<String> getJsonKeys() {
         List<String> keys = new ArrayList<>();
-        System.out.println(readingFilePath + "==");
         for(int i=0; i<fileLines.size(); ++i) {
             String[] json_lines = fileLines.get(i).trim().split(":");
             if(json_lines[0].startsWith("\"")) {
@@ -54,6 +53,12 @@ public class FileOperations {
     }
     public List<String> getJsonTypes() {
         List<String> types = new ArrayList<>();
+        for(int i=0; i<fileLines.size(); ++i) {
+            String[] json_lines = fileLines.get(i).trim().split(":");
+            if(json_lines.length == 2) {
+                System.out.println(json_lines[1]);
+            }
+        }
         return types;
     }
 }
