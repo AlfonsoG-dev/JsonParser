@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Application.Utils.FileUtils;
+import Application.Utils.JsonUtils;
 
 /*
  * TODO: get the json values when split by *:*.
@@ -15,7 +16,8 @@ import Application.Utils.FileUtils;
  */
 public class FileOperations {
 
-    private FileUtils utils;
+    private FileUtils fileUtils;
+    private JsonUtils jsonUtils;
     private String readingFilePath;
     private List<String> fileLines;
 
@@ -23,13 +25,15 @@ public class FileOperations {
      * With this constructor you also need to initialize the variables using setReadingPath methods from this class.
      */
     public FileOperations(String rootPath) {
-        utils = new FileUtils(rootPath);
+        fileUtils = new FileUtils(rootPath);
+        jsonUtils = new JsonUtils();
     }
 
     public FileOperations(String rootPath, String readingPath) {
-        utils = new FileUtils(rootPath);
+        fileUtils = new FileUtils(rootPath);
+        jsonUtils = new JsonUtils();
         this.readingFilePath = readingPath;
-        fileLines = utils.getFileLines(readingPath);
+        fileLines = fileUtils.getFileLines(readingPath);
     }
 
     /**
@@ -38,7 +42,7 @@ public class FileOperations {
      */
     public void setReadingPath(String filePath) {
         this.readingFilePath = filePath;
-        fileLines = utils.getFileLines(readingFilePath);
+        fileLines = fileUtils.getFileLines(readingFilePath);
     }
 
     public List<String> getJsonKeys() {
@@ -56,7 +60,7 @@ public class FileOperations {
         for(int i=0; i<fileLines.size(); ++i) {
             String[] json_lines = fileLines.get(i).trim().split(":");
             if(json_lines.length == 2) {
-                System.out.println(json_lines[1]);
+                System.out.println(jsonUtils.getJsonType(json_lines[1].trim()));
             }
         }
         return types;

@@ -2,17 +2,17 @@ package Application.Utils;
 
 public class JsonUtils {
 
-    public String getJsonType(String sentence) {
+    public JsonTypes getJsonType(String sentence) {
         if(sentence.startsWith("\"")) {
-            return "String";
+            return JsonTypes.STRING;
         } else if(sentence.startsWith("[")) {
-            return "List";
+            return JsonTypes.LIST;
         } else if(sentence.startsWith("{")) {
-            return "Object";
+            return JsonTypes.OBJECT;
         } else if(sentence.equals("true") || sentence.equals("false")) {
-            return "Boolean";
+            return JsonTypes.BOOLEAN;
         } else {
-            return "Number";
+            return JsonTypes.NUMBER;
         }
     }
 }
